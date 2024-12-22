@@ -1,0 +1,346 @@
+@define-color mainColor1 #B261CA;
+@define-color mainColor2 #773FB8;
+@define-color mainColor3 #3E098E;
+@define-color mainTextColor1 #773FB8;
+@define-color mainTextColor2 #F9EFFC;
+
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+* {
+    font-family: "JetBrainsMono NF SemiBold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color: rgba(0,0,0,0.6);
+    border-bottom: 0px solid @mainColor2;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+ #window {
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    margin: 5px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    color:@mainTextColor2;
+    font-size:16px;
+    font-weight:normal;
+}
+
+window#waybar.empty #window {
+    background:rgba(0, 0, 0, 0);
+}
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+ #workspaces {
+    margin: 5px 1px 5px 1px;
+    padding: 0px 1px;
+    border-radius: 5px;
+    border: 0px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16px;
+    color: @mainTextColor1;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 0px 3px;
+    border-radius: 5px;
+    border: 0px;
+    color: @mainTextColor1;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    color: @mainTextColor2;
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    border-radius: 5px;
+    min-width: 20px;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+#workspaces button:hover {
+    color: @mainTextColor2;
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    border-radius: 10px;
+    border: none;
+}
+
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
+ #custom-appmenu {
+    background : linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    color: @mainTextColor2;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 10px 0px 0px;
+    padding:0px;
+    font-size:20px;
+    color: @mainTextColor1;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+ #disk,#memory,#cpu,#language {
+    margin:0px;
+    padding:0px;
+    font-size:16px;
+    color:@mainTextColor1;
+}
+
+#cpu {
+    margin-left: 10px;
+}
+
+#language {
+    margin-right:10px;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    background : linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    font-size: 16px;
+    color: @mainTextColor2;
+    border-radius: 5px;
+    margin: 5px 1px;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    /*background-color: @backgroundlight;*/
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    font-size: 16px;
+    color: @mainTextColor2;
+    border-radius: 5px;
+    margin: 5px 1px;
+}
+
+#pulseaudio.muted {
+    background-color: @backgrounddark;
+    color: @textcolor1;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    /*background-color: @backgroundlight;*/
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    font-size: 16px;
+    color: @mainTextColor2;
+    border-radius: 5px;
+    margin: 5px 1px;
+}
+
+#network.ethernet {
+    background-color: @backgroundli6ght;
+    color: @mainTextColor2;
+}
+
+#network.wifi {
+    background-color: @backgroundlight;
+    color: @mainTextColor2;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+ #bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: @backgroundlight;
+    font-size: 16px;
+    color: @textcolor2;
+    border-radius: 5px;
+    margin: 5px 1px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    font-size: 16px;
+    color: @mainTextColor2;
+    border-radius: 5px;
+    margin: 5px 1px;
+}
+
+#battery.charging, #battery.plugged {
+    color: @mainTextColor2;
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+}
+
+@keyframes blink {
+    to {
+        background-color: @backgroundlight;
+        color: @textcolor2;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: @textcolor3;
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Taskbar
+ * ----------------------------------------------------- */
+
+ #taskbar {
+    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    margin: 5px 5px 5px 0px;
+    padding:0px;
+    border-radius: 10px;
+    font-weight: normal;
+    font-style: normal;
+    border: 3px solid @backgroundlight;
+}
+
+#taskbar button {
+    margin:0;
+    border-radius: 10px;
+    padding: 0px 5px 0px 5px;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+ .modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Custom Quicklinks
+ * ----------------------------------------------------- */
+
+#custom-browser, 
+#custom-filemanager,
+#network,
+#pulseaudio,
+#battery,
+#custom-appmenu,
+#clock {
+    margin-right: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    color: @iconcolor;
+    padding: 1px 10px 1px 10px;
+    font-size: 16px;
+}
+
+#custom-quicklink1,
+#custom-quicklink2,
+#custom-quicklink3,
+#custom-quicklink4,
+#custom-quicklink5,
+#custom-quicklink6,
+#custom-quicklink7,
+#custom-quicklink8,
+#custom-quicklink9,
+#custom-quicklink10 {
+    padding:0px;
+    margin-right: 0px;
+    font-size:20px;
+    color: @mainTextColor1;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+ tooltip {
+    border-radius: 10px;
+    background-color: @backgroundlight;
+    opacity:0.8;
+    padding:20px;
+    margin:0px;
+}
+
+tooltip label {
+    color: @textcolor2;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+ #tray {
+    margin:0px 5px 0px 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+/* -----------------------------------------------------
+ * Other
+ * ----------------------------------------------------- */
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}

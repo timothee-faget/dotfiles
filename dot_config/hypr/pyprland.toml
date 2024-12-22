@@ -1,0 +1,20 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "alacritty --class alacritty-dropterm"
+class = "alacritty-dropterm"
+size = "75% 60%"
+max_size = "1920px 100%"
+margin = 50
+
+[scratchpads.notes]
+animation = "fromBottom"
+command = "alacritty --class alacritty-todoterm -e nvim ~/Desktop/notes.md"
+class = "alacritty-todoterm"
+size = "75% 60%"
+max_size = "1920px 100%"
+margin = 50
