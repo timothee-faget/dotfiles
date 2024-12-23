@@ -10,28 +10,12 @@
 
 * {
     background: rgba(0,0,1,0.5);
-    foreground: #F9EFFC;
-    mainColor2: #773FB8;
-    mainColor1: #B261CA;
-    mainColor3: #3E098E;
-    mainTextColor1: #773FB8;
-    mainTextColor2: #F9EFFC;
-    color0:     #0A121B;
-    color1:     #056F93;
-    color2:     #039AA5;
-    color3:     #02C2BC;
-    color4:     #02A4D2;
-    color5:     #01AFEE;
-    color6:     #01D3D2;
-    color7:     #77e8e1;
-    color8:     #53a29d;
-    color9:     #056F93;
-    color10:    #039AA5;
-    color11:    #02C2BC;
-    color12:    #02A4D2;
-    color13:    #01AFEE;
-    color14:    #01D3D2;
-    color15:    #77e8e1;
+foreground:  #774A02;
+mainColor2:  #2B2B38;
+mainColor1:  #357266;
+mainColor3:  #2B2B38;
+mainTextColor1:  #774A02;
+mainTextColor2:  #BA7C1A;
 }
 
 * { 

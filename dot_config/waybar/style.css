@@ -1,8 +1,8 @@
-@define-color mainColor1 #B261CA;
-@define-color mainColor2 #773FB8;
-@define-color mainColor3 #3E098E;
-@define-color mainTextColor1 #773FB8;
-@define-color mainTextColor2 #F9EFFC;
+@define-color mainColor1 #A3BBAD;
+@define-color mainColor2 #357266;
+@define-color mainColor3 #2B2B38;
+@define-color mainTextColor1 #774A02;
+@define-color mainTextColor2 #BA7C1A;
 
 /* -----------------------------------------------------
  * General 
@@ -15,7 +15,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0);
     border-bottom: 0px solid @mainColor2;
     transition-property: background-color;
     transition-duration: .5s;
@@ -26,7 +26,8 @@ window#waybar {
  * ----------------------------------------------------- */
 
  #window {
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    /*background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
+    background: @mainColor3;
     margin: 5px;
     padding: 0px 10px;
     border-radius: 5px;
@@ -65,7 +66,8 @@ window#waybar.empty #window {
 
 #workspaces button.active {
     color: @mainTextColor2;
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    background: @mainColor3;
+    /*background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
     border-radius: 5px;
     min-width: 20px;
     transition: all 0.3s ease-in-out;
@@ -74,8 +76,9 @@ window#waybar.empty #window {
 
 #workspaces button:hover {
     color: @mainTextColor2;
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
-    border-radius: 10px;
+    background: @mainColor3;
+    /*background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
+    border-radius: 5px;
     border: none;
 }
 
@@ -125,9 +128,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    background : linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    background: @mainColor3;
+    /*background : linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
     font-size: 16px;
-    color: @mainTextColor2;
     border-radius: 5px;
     margin: 5px 1px;
 }
@@ -138,9 +141,8 @@ window#waybar.empty #window {
 
 #pulseaudio {
     /*background-color: @backgroundlight;*/
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    background: @mainColor3;/* linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
     font-size: 16px;
-    color: @mainTextColor2;
     border-radius: 5px;
     margin: 5px 1px;
 }
@@ -156,7 +158,7 @@ window#waybar.empty #window {
 
 #network {
     /*background-color: @backgroundlight;*/
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    background: @mainColor3; /*linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
     font-size: 16px;
     color: @mainTextColor2;
     border-radius: 5px;
@@ -169,7 +171,7 @@ window#waybar.empty #window {
 }
 
 #network.wifi {
-    background-color: @backgroundlight;
+    background-color: @mainColor3;
     color: @mainTextColor2;
 }
 
@@ -196,7 +198,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    background: @mainColor3; /*linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
     font-size: 16px;
     color: @mainTextColor2;
     border-radius: 5px;
@@ -205,7 +207,7 @@ window#waybar.empty #window {
 
 #battery.charging, #battery.plugged {
     color: @mainTextColor2;
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
+    background: @mainColor3; /*linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
 }
 
 @keyframes blink {
@@ -269,9 +271,8 @@ window#waybar.empty #window {
 #custom-appmenu,
 #clock {
     margin-right: 4px;
-    font-size: 20px;
     font-weight: bold;
-    color: @iconcolor;
+    color: @mainTextColor2;
     padding: 1px 10px 1px 10px;
     font-size: 16px;
 }

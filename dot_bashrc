@@ -1,3 +1,4 @@
+#!/bin/bash
 #    _               _              
 #   | |__   __ _ ___| |__  _ __ ___ 
 #   | '_ \ / _` / __| '_ \| '__/ __|
@@ -21,3 +22,4 @@ alias nano="nano -l"
 alias cl="clear"
 
 export PATH=/home/timothee/.local/bin:$PATH
+export EDITOR=nvim
