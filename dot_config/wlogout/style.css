@@ -1,0 +1,70 @@
+/*
+          _                         _    
+__      _| | ___   __ _  ___  _   _| |_  
+\ \ /\ / / |/ _ \ / _` |/ _ \| | | | __| 
+ \ V  V /| | (_) | (_| | (_) | |_| | |_  
+  \_/\_/ |_|\___/ \__, |\___/ \__,_|\__| 
+                  |___/                  
+ 
+by Stephan Raabe (2024) 
+----------------------------------------------------- 
+*/
+
+* {
+  font-family: "JetBrainsMono NF", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+	background-image: none;
+	transition: 20ms;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+button {
+  padding: 0;
+	margin: 150px 10px; 
+  color: #c0caf5;
+  font-size: 18px;
+  background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20%;
+	border-style: solid;
+  background-color: #1a1b26;
+	border: 3px solid #7aa2f7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:focus,
+button:active,
+button:hover {
+    color: #c0caf5;
+	border: 3px solid #7dcfff;
+  font-weight: bold;
+}
+
+/* 
+----------------------------------------------------- 
+Buttons
+----------------------------------------------------- 
+*/
+
+#lock {
+	border-radius: 20px;
+	background-image: image(url("icons/lock.png"));
+}
+
+#logout {
+	border-radius: 20px;
+	background-image: image(url("icons/logout.png"));
+}
+
+#shutdown {
+	border-radius: 20px;
+	background-image: image(url("icons/shutdown.png"));
+}
+
+#reboot {
+	border-radius: 20px;
+	background-image: image(url("icons/reboot.png"));
+}

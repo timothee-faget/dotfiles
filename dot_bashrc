@@ -20,6 +20,8 @@ fi
 # alias ml4w-hyprland='~/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage'
 alias nano="nano -l"
 alias cl="clear"
+alias yazi="/home/timothee/apps/yazi/target/release/yazi"
 
 export PATH=/home/timothee/.local/bin:$PATH
 export EDITOR=nvim
+export DIALOGRC=/home/timothee/.config/dialog/config

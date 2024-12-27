@@ -1,26 +1,19 @@
-/*
-#  ____        __ _  
-# |  _ \ ___  / _(_) 
-# | |_) / _ \| |_| | 
-# |  _ < (_) |  _| | 
-# |_| \_\___/|_| |_| 
-#                    
-# ----------------------------------------------------- 
-*/
-
 * {
-    background: rgba(0,0,1,0.5);
-foreground:  #774A02;
-mainColor2:  #2B2B38;
-mainColor1:  #357266;
-mainColor3:  #2B2B38;
-mainTextColor1:  #774A02;
-mainTextColor2:  #BA7C1A;
+  backgroundColor:  #1A1B26;
+  backgroundColor1: #283457;
+  foreground:  #C0CAF5;
+  border:      #7AA2F7;
+  border1:     #283457;
+  mainColor2:  #2B2B38;
+  mainColor1:  #357266;
+  mainColor3:  #2B2B38;
+  mainTextColor1:  #774A02;
+  mainTextColor2:  #BA7C1A;
 }
 
 * { 
     border-width: 3px;
-    background: rgba(0, 0, 0, 0.8);  // Dark semi-transparent background
+    background: @backgroundColor;
     fullscreen: true;   
  }
 
@@ -53,7 +46,7 @@ window {
     margin:                       0px; 
     color:                        @foreground;
     border:                       4px;
-    border-color:                 @mainColor3;
+    border-color:                 @border;
     cursor:                       "default";
     transparency:                 "real";
     location:                     north;
@@ -102,7 +95,7 @@ inputbar {
     spacing:                      10px;
     padding:                      15px;
     border-radius:                0px;
-    border-color:                 @mainColor2;
+    border-color:                 @border;
     background-color:             @background;
     children:                     [ "textbox-prompt-colon", "entry" ];
 }
@@ -175,7 +168,7 @@ element {
     background-color:             @background;
     border-radius:                5px;
     border:                       @border-width;
-    border-color: @mainColor2;
+    border-color: @border1;
 }
 
 element normal.normal {
@@ -194,8 +187,9 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color:            @mainColor1;
+    background-color:            @backgroundColor1;
     text-color:                  @foreground;
+    border-color:                @border;
 }
 
 element selected.urgent {
@@ -232,7 +226,7 @@ element-icon {
 
 element-text {
     background-color:            transparent;
-    text-color:                  @mainTextColor2;
+    text-color:                  @foreground;
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.0;

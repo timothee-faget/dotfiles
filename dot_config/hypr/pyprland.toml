@@ -5,16 +5,24 @@ plugins = [
 
 [scratchpads.term]
 animation = "fromTop"
-command = "alacritty --class alacritty-dropterm"
-class = "alacritty-dropterm"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
 size = "75% 60%"
 max_size = "1920px 100%"
 margin = 50
 
 [scratchpads.notes]
 animation = "fromBottom"
-command = "alacritty --class alacritty-todoterm -e nvim ~/Desktop/notes.md"
-class = "alacritty-todoterm"
+command = "kitty --class kitty-todoterm -e nvim ~/Desktop/notes.md"
+class = "kitty-todoterm"
 size = "75% 60%"
 max_size = "1920px 100%"
-margin = 50
+margin = 20
+
+[scratchpads.files]
+animation = "fromRight"
+command = "kitty --class kitty-files -e /home/timothee/apps/yazi/target/release/yazi"
+class = "kitty-files"
+size = "50% 80%"
+max_size = "1000px 100%"
+margin = 20

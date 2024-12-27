@@ -1,8 +1,14 @@
-@define-color mainColor1 #A3BBAD;
-@define-color mainColor2 #357266;
-@define-color mainColor3 #2B2B38;
-@define-color mainTextColor1 #774A02;
-@define-color mainTextColor2 #BA7C1A;
+@define-color backgroundColor #1A1B26;
+@define-color textColor #C0CAF5;
+@define-color textColor1 #7AA2F7;
+@define-color textColor2 #1A1B26;
+@define-color borderColor #7AA2F7;
+
+@define-color batteryCharginColor #73DACA;
+@define-color batteryCriticalColor #DB4B4B;
+@define-color batteryBlinkColor #FF9E64;
+
+@define-color networkDisconnectedColor #DB4B4B;
 
 /* -----------------------------------------------------
  * General 
@@ -16,28 +22,41 @@
 
 window#waybar {
     background-color: rgba(0,0,0,0);
-    border-bottom: 0px solid @mainColor2;
+    border-bottom: 0px solid @borderColor;
     transition-property: background-color;
     transition-duration: .5s;
+}
+
+/* -----------------------------------------------------
+ * Standard format
+ * ----------------------------------------------------- */
+
+#window,
+#clock,
+#pulseaudio,
+#network,
+#network.wifi,
+#bluetooth,
+#battery,
+#custom-exit {
+  background: @backgroundColor;
+  color: @textColor;
+  border-radius: 5px;
+  border: 2px solid @borderColor;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 5px 1px;
+  padding: 0px 10px;
 }
 
 /* -----------------------------------------------------
  * Window
  * ----------------------------------------------------- */
 
- #window {
-    /*background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
-    background: @mainColor3;
-    margin: 5px;
-    padding: 0px 10px;
-    border-radius: 5px;
-    color:@mainTextColor2;
-    font-size:16px;
-    font-weight:normal;
-}
-
 window#waybar.empty #window {
-    background:rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
 /* -----------------------------------------------------
@@ -45,52 +64,52 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
  #workspaces {
-    margin: 5px 1px 5px 1px;
-    padding: 0px 1px;
-    border-radius: 5px;
-    border: 0px;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 16px;
-    color: @mainTextColor1;
+    margin: 5px 1px 5px 2px;
+    font-size: 15px;
 }
 
 #workspaces button {
-    padding: 0px 5px;
-    margin: 0px 3px;
-    border-radius: 5px;
+    padding: 0px 3px;
+    margin: 0px 1px;
     border: 0px;
-    color: @mainTextColor1;
-    transition: all 0.3s ease-in-out;
+    color: @textColor;
+    transition: all 0.1s ease-in-out;
 }
 
 #workspaces button.active {
-    color: @mainTextColor2;
-    background: @mainColor3;
-    /*background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
+    background: @backgroundColor;
+    min-width: 16px;
     border-radius: 5px;
-    min-width: 20px;
-    transition: all 0.3s ease-in-out;
-    border: none;
+    transition: all 0.1s ease-in-out;
+    border: 2px solid @borderColor;
 }
 
 #workspaces button:hover {
-    color: @mainTextColor2;
-    background: @mainColor3;
-    /*background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
-    border-radius: 5px;
-    border: none;
+    color: @textColor1;
+    background: none;
 }
 
 /* -----------------------------------------------------
- * Custom Modules
+ * Network
  * ----------------------------------------------------- */
 
- #custom-appmenu {
-    background : linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
-    color: @mainTextColor2;
-    border-radius: 5px;
-    margin: 5px;
+#network.disconnected {
+    background: @networkDisconnectedColor;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#disk,#memory,#cpu {
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+    color: @textColor;
+}
+
+#disk {
+    margin-right: 10px;
 }
 
 /* -----------------------------------------------------
@@ -98,99 +117,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-exit {
-    margin: 0px 10px 0px 0px;
-    padding:0px;
-    font-size:20px;
-    color: @mainTextColor1;
-}
-
-/* -----------------------------------------------------
- * Hardware Group
- * ----------------------------------------------------- */
-
- #disk,#memory,#cpu,#language {
-    margin:0px;
-    padding:0px;
-    font-size:16px;
-    color:@mainTextColor1;
-}
-
-#cpu {
-    margin-left: 10px;
-}
-
-#language {
-    margin-right:10px;
-}
-
-/* -----------------------------------------------------
- * Clock
- * ----------------------------------------------------- */
-
-#clock {
-    background: @mainColor3;
-    /*background : linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
-    font-size: 16px;
-    border-radius: 5px;
-    margin: 5px 1px;
-}
-
-/* -----------------------------------------------------
- * Pulseaudio
- * ----------------------------------------------------- */
-
-#pulseaudio {
-    /*background-color: @backgroundlight;*/
-    background: @mainColor3;/* linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
-    font-size: 16px;
-    border-radius: 5px;
-    margin: 5px 1px;
-}
-
-#pulseaudio.muted {
-    background-color: @backgrounddark;
-    color: @textcolor1;
-}
-
-/* -----------------------------------------------------
- * Network
- * ----------------------------------------------------- */
-
-#network {
-    /*background-color: @backgroundlight;*/
-    background: @mainColor3; /*linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
-    font-size: 16px;
-    color: @mainTextColor2;
-    border-radius: 5px;
-    margin: 5px 1px;
-}
-
-#network.ethernet {
-    background-color: @backgroundli6ght;
-    color: @mainTextColor2;
-}
-
-#network.wifi {
-    background-color: @mainColor3;
-    color: @mainTextColor2;
-}
-
-/* -----------------------------------------------------
- * Bluetooth
- * ----------------------------------------------------- */
-
- #bluetooth, #bluetooth.on, #bluetooth.connected {
-    background-color: @backgroundlight;
-    font-size: 16px;
-    color: @textcolor2;
-    border-radius: 5px;
-    margin: 5px 1px;
-}
-
-#bluetooth.off {
-    background-color: transparent;
-    padding: 0px;
-    margin: 0px;
+  padding: 0px 3px 0px 0px;
+  min-width: 25px; 
 }
 
 /* -----------------------------------------------------
@@ -198,28 +126,22 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-    background: @mainColor3; /*linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
-    font-size: 16px;
-    color: @mainTextColor2;
-    border-radius: 5px;
-    margin: 5px 1px;
+  font-weight: bold; 
 }
 
 #battery.charging, #battery.plugged {
-    color: @mainTextColor2;
-    background: @mainColor3; /*linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);*/
+    color: @textColor2;
+    background: @batteryCharginColor;
 }
 
 @keyframes blink {
     to {
-        background-color: @backgroundlight;
-        color: @textcolor2;
+        background-color: @batteryBlinkColor;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: @textcolor3;
+    background-color: @batteryCriticalColor;
     animation-name: blink;
     animation-duration: 0.8s;
     animation-timing-function: linear;
@@ -228,120 +150,19 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Taskbar
- * ----------------------------------------------------- */
-
- #taskbar {
-    background: linear-gradient(160deg, @mainColor1 0%, @mainColor2 50%, @mainColor3 100%);
-    margin: 5px 5px 5px 0px;
-    padding:0px;
-    border-radius: 10px;
-    font-weight: normal;
-    font-style: normal;
-    border: 3px solid @backgroundlight;
-}
-
-#taskbar button {
-    margin:0;
-    border-radius: 10px;
-    padding: 0px 5px 0px 5px;
-}
-
-/* -----------------------------------------------------
- * Modules
- * ----------------------------------------------------- */
-
- .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-/* -----------------------------------------------------
- * Custom Quicklinks
- * ----------------------------------------------------- */
-
-#custom-browser, 
-#custom-filemanager,
-#network,
-#pulseaudio,
-#battery,
-#custom-appmenu,
-#clock {
-    margin-right: 4px;
-    font-weight: bold;
-    color: @mainTextColor2;
-    padding: 1px 10px 1px 10px;
-    font-size: 16px;
-}
-
-#custom-quicklink1,
-#custom-quicklink2,
-#custom-quicklink3,
-#custom-quicklink4,
-#custom-quicklink5,
-#custom-quicklink6,
-#custom-quicklink7,
-#custom-quicklink8,
-#custom-quicklink9,
-#custom-quicklink10 {
-    padding:0px;
-    margin-right: 0px;
-    font-size:20px;
-    color: @mainTextColor1;
-}
-
-/* -----------------------------------------------------
  * Tooltips
  * ----------------------------------------------------- */
 
  tooltip {
-    border-radius: 10px;
-    background-color: @backgroundlight;
-    opacity:0.8;
-    padding:20px;
-    margin:0px;
+    border-radius: 5px;
+    color: @textColor;
+    background: @backgroundColor;
+    border: 2px solid @borderColor;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 0px;
 }
 
 tooltip label {
-    color: @textcolor2;
-}
-
-/* -----------------------------------------------------
- * Tray
- * ----------------------------------------------------- */
-
- #tray {
-    margin:0px 5px 0px 0px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-/* -----------------------------------------------------
- * Other
- * ----------------------------------------------------- */
-
-label:focus {
-    background-color: #000000;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
+    color: @textColor;
 }
